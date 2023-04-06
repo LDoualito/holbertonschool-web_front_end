@@ -4,4 +4,8 @@ body {
         color: #3D3D3D;
     }
 }
-$ @debug "Hello World";
+// Define a variable with the string to output
+$hello-world: "Hello world";
+
+// Use the @debug directive to output the string to the debug output
+@debug $hello-world;
