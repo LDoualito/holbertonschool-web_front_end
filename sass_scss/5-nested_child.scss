@@ -1,12 +1,12 @@
 /* My style */
 
-// Apply the text color to elements inside the body tag
+$default-color: #3D3D3D;
+$red-color: #FF0000;
+
 body {
-    color: #3D3D3D;
-  
-    // Apply the red text color to elements of class .red inside the body tag
-    .red {
-      color: #FF0000;
-    }
+  color: $default-color;
+
+  .red:first-child {
+    color: $red-color;
   }
-  
+}
