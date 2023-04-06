@@ -1,0 +1,22 @@
+/* My style */
+body {
+    .container {
+        color: #3D3D3D;
+    }
+}
+
+// Define the mixin
+@mixin margins($left, $right) {
+    margin-left: $left;
+    margin-right: $right;
+  }
+  
+  // Apply the margins using the mixin
+  body {
+    @include margins(10px, 10px);
+  }
+  
+  div {
+    @include margins(15px, 15px);
+  }
+  

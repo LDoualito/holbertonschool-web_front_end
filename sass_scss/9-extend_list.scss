@@ -1,0 +1,23 @@
+/* My style */
+body {
+    .container {
+        color: #3D3D3D;
+    }
+}
+
+// Define the shared style for the .info class
+.info {
+    font-size: 12px;
+  }
+  
+  // Apply the text color values and extend the .info class
+  .success {
+    @extend .info;
+    color: #00FF00;
+  }
+  
+  .warning {
+    @extend .info;
+    color: #FF0000;
+  }
+  

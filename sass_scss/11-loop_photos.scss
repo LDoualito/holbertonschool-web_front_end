@@ -1,0 +1,16 @@
+/* My style */
+body {
+    .container {
+        color: #3D3D3D;
+    }
+}
+
+// Import the image URLs file
+@import "10-image-urls";
+
+// Loop through the list of names and create a class for each
+@each $name in $list-names {
+  .name-#{$name} {
+    background-image: url('#{$image-urls-map[$name]}');
+  }
+}

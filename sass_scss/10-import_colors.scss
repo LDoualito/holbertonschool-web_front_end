@@ -1,0 +1,22 @@
+/* My style */
+body {
+    .container {
+        color: #3D3D3D;
+    }
+}
+
+// Import the color variables file
+@import "10-colors";
+
+// Apply the text color values using the variables
+.red {
+  color: $red;
+}
+
+.green {
+  color: $green;
+}
+
+.blue {
+  color: $blue;
+}

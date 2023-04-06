@@ -1,0 +1,17 @@
+/* My style */
+body {
+    .container {
+        color: #3D3D3D;
+    }
+}
+
+// Apply the initial text color to button tags
+button {
+    color: #FF0000;
+  
+    // Apply the text color change on hover
+    &:hover {
+      color: #00FF00;
+    }
+  }
+  
