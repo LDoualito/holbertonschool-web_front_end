@@ -5,10 +5,9 @@ body {
     }
 }
 
-// Define a variable for the text color
-$text-color: #3D3D3D;
+$main-text-color: #3D3D3D;
 
-// Apply the text color to the body and p selectors
-body, p {
-  color: $text-color;
+body,
+p {
+  color: $main-text-color;
 }
