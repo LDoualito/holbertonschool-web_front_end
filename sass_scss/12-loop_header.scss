@@ -1,9 +1,4 @@
 /* My style */
-body {
-    .container {
-        color: #3D3D3D;
-    }
-}
 
 @for $i from 1 through 5 {
     h#{$i} {

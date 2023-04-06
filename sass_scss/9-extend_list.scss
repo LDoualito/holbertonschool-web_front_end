@@ -1,9 +1,4 @@
 /* My style */
-body {
-    .container {
-        color: #3D3D3D;
-    }
-}
 
 // Define the shared style for the .info class
 .info {
@@ -20,4 +15,3 @@ body {
     @extend .info;
     color: #FF0000;
   }
-  
