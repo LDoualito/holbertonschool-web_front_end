@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Task 6</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" type="application/javascript"></script>
+  <script type="application/javascript">
+    function createFamilyTree() {
+      const table = $('<table>');
+      const thead = $('<thead>');
+      const tbody = $('<tbody>');
+
+      const headRow = $('<tr>');
+      headRow.append($('<th>').text('Firstname'));
+      headRow.append($('<th>').text('Lastname'));
+      thead.append(headRow);
+
+      table.append(thead);
+      table.append(tbody);
+
+      $('body').append(table);
+    }
+
+    function addNewMember(firstName, lastName, position) {
+      const newRow = $('<tr>');
+      newRow.append($('<td>').text(firstName));
+      newRow.append($('<td>').text(lastName));
+      if (position === 'before') {
+        $('tbody').prepend(newRow);
+      } else {
+        $('tbody').append(newRow);
+      }
+    }
+
+    function createForm() {
+      const input1 = $('<input>').attr('type', 'text');
+      const input2 = $('<input>').attr('type', 'text');
+      const select = $('<select>').append($('<option>').attr('value', 'before').text('Before')).append($('<option>').attr('value', 'after').text('After'));
+      const submitBtn = $('<input>').attr('type', 'submit');
+
+      $('table').before(input1, input2, select, submitBtn);
+
+      submitBtn.click(function() {
+        const firstName = input1.val();
+        const lastName = input2.val();
+        const position = select.val();
+        addNewMember(firstName, lastName, position);
+      });
+    }
+
+    $(document).ready(function() {
+      createFamilyTree();
+      createForm();
+      addNewMember('Guillaume', 'Salva', 'before');
+      addNewMember('Arielle', 'Snizt', 'after');
+      addNewMember('Fanette', 'Snizt', 'before');
+      addNewMember('Gerard', 'Snizt', 'after');
+      addNewMember('Victor', 'Salva', 'before');
+    });
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
