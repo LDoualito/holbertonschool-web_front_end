@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="form">
+			<h2>Login to the website</h2>
+			<input type="text" id="firstname" placeholder="Firstname">
+			<input type="text" id="email" placeholder="Email">
+			<button onclick="setCookiesandShowWelcomeMessage()">Log me in</button>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+		<script type="application/javascript">
+			showWelcomeMessageOrForm();
+
+			function setCookiesandShowWelcomeMessage() {
+				let firstname = document.getElementById('firstname').value;
+				let email = document.getElementById('email').value;
+				Cookies.set('firstname', firstname, {
+					expires: 10
+				});
+				Cookies.set('email', email, {
+					expires: 10
+				});
+				showWelcomeMessageOrForm();
+			}
+
+			function showCookies() {
+				let p = document.createElement('p');
+				p.innerHTML = `Email: ${getCookie("email")} - Firstname: ${getCookie("firstname")}`;
+				document.body.appendChild(p)
+			}
+
+			function showForm() {
+				document.getElementById('message').remove();
+				document.getElementById('form').style.display = 'block';
+			}
+
+			function hideForm() {
+				document.getElementById('form').style.display = 'none';
+			}
+
+			function deleteCookiesAndShowForm() {
+				let arrayCookies = document.cookie.split(";");
+				for (let i = 0; i < arrayCookies.length; i++) {
+					let cookie = arrayCookies[i].split("=");
+					Cookies.remove(cookie[0])
+				}
+				showForm();
+			}
+
+			function showWelcomeMessageOrForm() {
+				let firstname = Cookies.get('firstname');
+				let email = Cookies.get('email');
+				if (!firstname || !email) showForm();
+				else {
+					hideForm();
+					let message = document.createElement('h1');
+					message.setAttribute("id", "message");
+					let content = `Welcome ${firstname}
+								<a style="font-weight: 400; font-style: italic; margin-left: 10px;" onclick="deleteCookiesAndShowForm()">(logout)</a>`
+					message.innerHTML = content;
+					document.body.appendChild(message)
+				}
+			}
+		</script>
+	</body>
+</html>
